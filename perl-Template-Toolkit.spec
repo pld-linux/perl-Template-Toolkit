@@ -5,7 +5,7 @@ Summary:	Template-Toolkit perl extension
 Summary(pl):	Rozszerzenie perla: Template-Toolkit
 Name:		perl-Template-Toolkit
 Version:	2.06
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
