@@ -9,13 +9,13 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	2.10
-Release:	2
+Version:	2.12
+Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	0c344240ceca9d7746d0a23b066521f0
+# Source0-md5:	12eb270e3da176f2525b5422097e3300
 Patch0:		%{name}-paths.patch
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl-devel >= 5.6.1
@@ -304,33 +304,33 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes HACKING README TODO
 %attr(755,root,root) %{_bindir}/*
-%{perl_vendorarch}/Template.pm
-%{perl_vendorarch}/Template/*.pm
-%{perl_vendorarch}/Template/Stash
-%{perl_vendorarch}/Template/Namespace
-%dir %{perl_vendorarch}/Template/Plugin
-%dir %{perl_vendorarch}/Template/Plugin/XML
+%{perl_vendorarch}/%{pdir}.pm
+%{perl_vendorarch}/%{pdir}/*.pm
+%{perl_vendorarch}/%{pdir}/Stash
+%{perl_vendorarch}/%{pdir}/Namespace
+%dir %{perl_vendorarch}/%{pdir}/Plugin
+%dir %{perl_vendorarch}/%{pdir}/Plugin/XML
 # These are not plugins, but base classes
-%{perl_vendorarch}/Template/Plugin/Filter.pm
-%{perl_vendorarch}/Template/Plugin/Procedural.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Filter.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Procedural.pm
 # Simple plugins with no excessive requirements
-%{perl_vendorarch}/Template/Plugin/CGI.pm
-%{perl_vendorarch}/Template/Plugin/Datafile.pm
-%{perl_vendorarch}/Template/Plugin/Directory.pm
-%{perl_vendorarch}/Template/Plugin/File.pm
-%{perl_vendorarch}/Template/Plugin/Format.pm
-%{perl_vendorarch}/Template/Plugin/HTML.pm
-%{perl_vendorarch}/Template/Plugin/Iterator.pm
-%{perl_vendorarch}/Template/Plugin/String.pm
-%{perl_vendorarch}/Template/Plugin/Table.pm
-%{perl_vendorarch}/Template/Plugin/URL.pm
-%{perl_vendorarch}/Template/Plugin/View.pm
-%{perl_vendorarch}/Template/Plugin/Wrap.pm
-%dir %{perl_vendorarch}/auto/Template
-%dir %{perl_vendorarch}/auto/Template/Stash
-%dir %{perl_vendorarch}/auto/Template/Stash/XS
-%{perl_vendorarch}/auto/Template/Stash/XS/*.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/Template/Stash/XS/*.so
+%{perl_vendorarch}/%{pdir}/Plugin/CGI.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Datafile.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Directory.pm
+%{perl_vendorarch}/%{pdir}/Plugin/File.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Format.pm
+%{perl_vendorarch}/%{pdir}/Plugin/HTML.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Iterator.pm
+%{perl_vendorarch}/%{pdir}/Plugin/String.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Table.pm
+%{perl_vendorarch}/%{pdir}/Plugin/URL.pm
+%{perl_vendorarch}/%{pdir}/Plugin/View.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Wrap.pm
+%dir %{perl_vendorarch}/auto/%{pdir}
+%dir %{perl_vendorarch}/auto/%{pdir}/Stash
+%dir %{perl_vendorarch}/auto/%{pdir}/Stash/XS
+%{perl_vendorarch}/auto/%{pdir}/Stash/XS/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/%{pdir}/Stash/XS/*.so
 %{_mandir}/man[13]/*
 
 %files examples
@@ -339,48 +339,48 @@ rm -rf $RPM_BUILD_ROOT
 
 %files Plugin-GD
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/GD
+%{perl_vendorarch}/%{pdir}/Plugin/GD
 
 %files Plugin-Autoformat
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/Autoformat.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Autoformat.pm
 
 %files Plugin-Date
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/Date.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Date.pm
 
 %files Plugin-DBI
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/DBI.pm
+%{perl_vendorarch}/%{pdir}/Plugin/DBI.pm
 
 %files Plugin-Image
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/Image.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Image.pm
 
 %files Plugin-Pod
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/Pod.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Pod.pm
 
 %files Plugin-Dumper
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/Dumper.pm
+%{perl_vendorarch}/%{pdir}/Plugin/Dumper.pm
 
 %files Plugin-XML-DOM
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/XML/DOM.pm
+%{perl_vendorarch}/%{pdir}/Plugin/XML/DOM.pm
 
 %files Plugin-XML-RSS
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/XML/RSS.pm
+%{perl_vendorarch}/%{pdir}/Plugin/XML/RSS.pm
 
 %files Plugin-XML-Simple
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/XML/Simple.pm
+%{perl_vendorarch}/%{pdir}/Plugin/XML/Simple.pm
 
 %files Plugin-XML-Style
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/XML/Style.pm
+%{perl_vendorarch}/%{pdir}/Plugin/XML/Style.pm
 
 %files Plugin-XML-XPath
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/XML/XPath.pm
+%{perl_vendorarch}/%{pdir}/Plugin/XML/XPath.pm
