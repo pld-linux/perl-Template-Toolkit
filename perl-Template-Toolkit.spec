@@ -294,7 +294,7 @@ widok przy u¿yciu szablonu 'text'.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -j1 install \
 	DESTDIR=$RPM_BUILD_ROOT
 # For arch-independent plugins. Plugins shipped with TT are
 # arch-independent too, but moving them to %{perl_vendorlib}
