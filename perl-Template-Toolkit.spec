@@ -52,11 +52,26 @@ It was originally designed and remains primarily useful for generating
 dynamic web content, but it can be used equally well for processing
 any other kind of text based documents: HTML, XML, POD, PostScript,
 LaTeX, and so on.
+
 It can be used as a stand-alone Perl module or embedded within an
 Apache/mod_perl server for generating highly configurable dynamic web
-content.  A number of Perl scripts are also provided which can greatly
+content. A number of Perl scripts are also provided which can greatly
 simplify the process of creating and managing static web content and
 other offline document systems.
+
+%description -l pl
+Template Toolkit to zestaw modu³ów z implementacj± szybkiego,
+elastycznego, potê¿nego i rozszerzalnego systemu przetwarzania
+wzorców. Oryginalnie zosta³ zaprojektowany i nadal jest u¿ywany
+g³ównie do generowania dynamicznych stron WWW, ale mo¿e byæ tak¿e
+u¿yty do przetwarzania dowolnych innych rodzajów dokumentów
+tekstowych: HTML, XML, POD, PostScript, LaTeX itd.
+
+Mo¿e byæ u¿ywany jako samodzielny modu³ Perla, lub wbudowany w serwer
+Apache/mod_perl do wysoko konfigurowalnego generowania dynamicznych
+stron WWW. Za³±czonych jest wiele skryptów Perla, które mog± upro¶ciæ
+proces tworzenia i zarz±dzania statycznymi stronami WWW oraz innymi
+systemami dokumentów offline.
 
 %prep
 %setup -q -n Template-Toolkit-%{version}
