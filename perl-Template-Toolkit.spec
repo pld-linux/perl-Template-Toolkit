@@ -1,8 +1,8 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Template
 %define	pnam	Toolkit
-Summary:	Template-Toolkit perl extension
-Summary(pl):	Rozszerzenie perla: Template-Toolkit
+Summary:	Template::Toolkit perl extension
+Summary(pl):	Rozszerzenie perla: Template::Toolkit
 Name:		perl-Template-Toolkit
 Version:	2.06
 Release:	4
