@@ -4,8 +4,8 @@
 %bcond_without 	tests		# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Template
-%define	pnam	Toolkit
+%define		pdir	Template
+%define		pnam	Toolkit
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
