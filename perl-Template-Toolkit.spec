@@ -33,7 +33,6 @@ BuildRequires:	perl-XML-Parser >= 2.23
 BuildRequires:	perl-XML-RSS >= 0.9
 BuildRequires:	perl-XML-Simple
 BuildRequires:	perl-XML-XPath >= 1.00
-BuildRequires:	perl-libxml-enno
 BuildRequires:	perl(XML::DOM) >= 1.27
 %endif
 BuildRequires:	rpm-perlprov >= 4.1-13
