@@ -1,11 +1,11 @@
+%include	/usr/lib/rpm/macros.perl
 %define	pdir	Template
 %define	pnam	Toolkit
-%include	/usr/lib/rpm/macros.perl
 Summary:	Template-Toolkit perl extension
 Summary(pl):	Rozszerzenie perla: Template-Toolkit
 Name:		perl-Template-Toolkit
 Version:	2.06
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -59,7 +59,7 @@ proces tworzenia i zarz±dzania statycznymi stronami WWW oraz innymi
 systemami dokumentów offline.
 
 %prep
-%setup -q -n Template-Toolkit-%{version}
+%setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
 
 %build
