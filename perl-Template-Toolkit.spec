@@ -10,13 +10,8 @@ License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
-Requires:	tetex-pdftex
-Requires:	tetex-latex
-Requires:	tetex-dvips
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6.1
-BuildRequires:	perl-libxml-enno
-BuildRequires:  perl(XML::DOM) >= 1.27
 BuildRequires:	perl-Text-Autoformat >= 1.03
 BuildRequires:	perl-DBI >= 1.14
 BuildRequires:	perl-GD >= 1.32
@@ -27,6 +22,11 @@ BuildRequires:  perl-Pod-POM >= 0.1
 BuildRequires:  perl-XML-Parser >= 2.23
 BuildRequires:  perl-XML-RSS >= 0.9
 BuildRequires:	perl-XML-XPath >= 1.00
+BuildRequires:	perl-libxml-enno
+BuildRequires:  perl(XML::DOM) >= 1.27
+Requires:	tetex-dvips
+Requires:	tetex-latex
+Requires:	tetex-pdftex
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,14 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf Changes HACKING README TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc Changes HACKING README TODO
 %doc %{_examplesdir}/tt2
 %attr(755,root,root) %{_bindir}/*
 %{perl_sitearch}/Template.pm
