@@ -13,6 +13,7 @@ Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	04b14a3ddb54db77a8eb7104635a7f23
 Patch0:		%{name}-paths.patch
 URL:		http://www.template-toolkit.org
 BuildRequires:	perl-devel >= 5.6.1
