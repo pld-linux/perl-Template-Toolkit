@@ -5,20 +5,23 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Template
 %define	pnam	Toolkit
-Summary:	Template::Toolkit Perl extension
-Summary(pl):	Rozszerzenie perla: Template::Toolkit
+Summary:	Fast, powerful and easily extensible template processing system
+Summary(pl):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	2.08
-Release:	2
+Version:	2.09
+Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	04b14a3ddb54db77a8eb7104635a7f23
+#Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	a69cc8947d2162ec898708fd3ff44b51
 Patch0:		%{name}-paths.patch
+Patch1:		%{name}-image.patch
 URL:		http://www.template-toolkit.org
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
+%if 0%{?_with_tests:1}
 BuildRequires:	perl-DBI >= 1.14
 BuildRequires:	perl-GD >= 1.32
 BuildRequires:	perl-GD-Graph >= 1.33
@@ -32,6 +35,7 @@ BuildRequires:	perl-XML-Simple
 BuildRequires:	perl-XML-XPath >= 1.00
 BuildRequires:	perl-libxml-enno
 BuildRequires:	perl(XML::DOM) >= 1.27
+%endif
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	tetex-dvips
 Requires:	tetex-latex
@@ -66,9 +70,21 @@ stron WWW. Za³±czonych jest wiele skryptów Perla, które mog± upro¶ciæ
 proces tworzenia i zarz±dzania statycznymi stronami WWW oraz innymi
 systemami dokumentów offline.
 
+%package examples
+Summary:	Examples for Template Toolkit
+Summary(pl):	Przyk³ady zastosowania Template Toolkit
+Group:		Development/Languages/Perl
+
+%description examples
+Examples for Template Toolkit
+
+%description examples -l pl
+Przyk³ady zastosowania Template Toolkit
+
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__perl} Makefile.PL \
@@ -105,4 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/Template/Stash/XS/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Template/Stash/XS/*.so
 %{_mandir}/man[13]/*
+
+%files examples 
 %{_examplesdir}/%{name}-%{version}
