@@ -1,7 +1,6 @@
-Binary files Template-Toolkit-2.06.orig/.Makefile.PL.swp and Template-Toolkit-2.06/.Makefile.PL.swp differ
 diff -urN Template-Toolkit-2.06.orig/Makefile.PL Template-Toolkit-2.06/Makefile.PL
 --- Template-Toolkit-2.06.orig/Makefile.PL	Wed Sep 12 17:16:31 2001
-+++ Template-Toolkit-2.06/Makefile.PL	Wed Feb 20 10:23:46 2002
++++ Template-Toolkit-2.06/Makefile.PL	Sat Jun 15 14:08:09 2002
 @@ -189,20 +189,20 @@
      return '' unless $main::TT_PREFIX;
      my $amble =<<'EOF';
@@ -17,19 +16,19 @@ diff -urN Template-Toolkit-2.06.orig/Makefile.PL Template-Toolkit-2.06/Makefile.
      $amble .=<<EOF if $main::TT_BUILD_DOCS;
  tt2_html_docs ::
 -	\@\$(PERL) bin/ttree -v -f "\$(TT_PREFIX)/$TT_DOCS_CFG"
-+	\@\$(PERL) bin/ttree -v -f "\$(DESTDIR)\$(TT_PREFIX)/$TT_DOCS_CFG"
++	\@\$(PERL) -I lib -I blib -I blib/lib -I blib/arch bin/ttree -v -f "\$(DESTDIR)\$(TT_PREFIX)/$TT_DOCS_CFG"
  
  EOF
      $amble .=<<EOF if $main::TT_EXAMPLES;
  tt2_examples ::
 -	\@\$(PERL) bin/ttree -v -f "\$(TT_PREFIX)/$TT_EXAMPLE_CFG"
-+	\@\$(PERL) bin/ttree -v -f "\$(DESTDIR)\$(TT_PREFIX)/$TT_EXAMPLE_CFG"
++	\@\$(PERL) -I lib -I blib -I blib/lib -I blib/arch bin/ttree -v -f "\$(DESTDIR)\$(TT_PREFIX)/$TT_EXAMPLE_CFG"
  
  EOF
      return $amble;
 diff -urN Template-Toolkit-2.06.orig/bin/gifsplash Template-Toolkit-2.06/bin/gifsplash
 --- Template-Toolkit-2.06.orig/bin/gifsplash	Fri Sep  7 09:25:18 2001
-+++ Template-Toolkit-2.06/bin/gifsplash	Tue Feb 19 16:08:20 2002
++++ Template-Toolkit-2.06/bin/gifsplash	Sat Jun 15 14:07:10 2002
 @@ -43,7 +43,7 @@
      INCLUDE_PATH => "$inst/templates",
      PRE_PROCESS  => 'html/rgb',
