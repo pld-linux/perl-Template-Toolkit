@@ -1,8 +1,8 @@
-
+#
 # Conditional build:
 %bcond_without 	autodeps	# don't BR packages needed only for resolving deps
-%bcond_with 	tests		# perform "make test"
-
+%bcond_without 	tests		# do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Template
 %define	pnam	Toolkit
@@ -10,7 +10,7 @@ Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
 Version:	2.10
-Release:	1.90
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -66,10 +66,9 @@ stron WWW. Za³±czonych jest wiele skryptów Perla, które mog± upro¶ciæ
 proces tworzenia i zarz±dzania statycznymi stronami WWW oraz innymi
 systemami dokumentów offline.
 
-
 %package examples
 Summary:	Examples for Template Toolkit
-Summary(pl):	Przyk³ady zastosowania Template Toolkit
+Summary(pl):	Przyk³ady zastosowania pakietu Template Toolkit
 Group:		Development/Languages/Perl
 
 %description examples
@@ -78,93 +77,201 @@ Examples for Template Toolkit
 %description examples -l pl
 Przyk³ady zastosowania Template Toolkit.
 
-%define plugin1	GD
-%define plugin2	Autoformat
-%define plugin3	Date
-%define plugin4	DBI
-%define plugin5	Image
-%define plugin6	Pod
-%define plugin7	Dumper
-%define plugin8	XML-DOM
-%define plugin9	XML-RSS
-%define plugin10	XML-Simple
-%define plugin11	XML-Style
-%define plugin12	XML-XPath
-
-%package Plugin-%{plugin1}
-Summary:	GD plugins for Template Toolkit
+%package Plugin-GD
+Summary:	GD plugins for Template Toolkit - graphics operations
+Summary(pl):	Wtyczki GD dla pakietu Template Toolkit - operacje graficzne
 Group:		Development/Languages/Perl
-%description Plugin-%{plugin1}
-%{plugin1} plugins for Template Toolkit.
+Requires:	%{name} = %{version}
 
-%package Plugin-%{plugin2}
-Summary:	GD plugins for Template Toolkit
-Group:		Development/Languages/Perl
-%description Plugin-%{plugin2}
-%{plugin2} plugin for Template Toolkit.
+%description Plugin-GD
+GD plugins for Template Toolkit - interface to GD graphics library.
 
-# Date
-%package Plugin-%{plugin3}
-Summary:	GD plugins for Template Toolkit
+%description Plugin-GD -l pl
+Wtyczki GD dla pakietu Template Tookit. Stanowi± one interfejs do
+biblioteki graficznej GD.
+
+%package Plugin-Autoformat
+Summary:	Autoformat plugin for Template Toolkit - text formatting
+Summary(pl):	Wtyczka Autoformat dla pakietu Template Toolkit - formatowanie tekstu
 Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description Plugin-Autoformat
+Autoformat plugin for Template Toolkit - interface to Text::Autoformat
+module which provides advanced text wrapping and formatting.
+
+%description Plugin-Autoformat -l pl
+Wtyczka Autoformat dla pakietu Template Toolkit. Stanowi ona interfejs
+do modu³u Text::Autoformat umo¿liwiaj±cego zaawansowane zawijanie i
+formatowanie tekstu.
+
+%package Plugin-Date
+Summary:	Date plugin for Template Toolkit - date formatting
+Summary(pl):	Wtyczka Date dla pakietu Template Toolkit - formatowanie daty
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
 #Requires:	perl-Date-Calc
 Requires:	perl-Date-Manip
-%description Plugin-%{plugin3}
-%{plugin3} plugin for Template Toolkit.
 
-%package Plugin-%{plugin4}
-Summary:	GD plugins for Template Toolkit
-Group:		Development/Languages/Perl
-%description Plugin-%{plugin4}
-%{plugin4} plugin for Template Toolkit.
+%description Plugin-Date
+Date plugin for Template Toolkit - to generate formatted date strings.
 
-%package Plugin-%{plugin5}
-Summary:	GD plugins for Template Toolkit
-Group:		Development/Languages/Perl
-%description Plugin-%{plugin5}
-%{plugin5} plugin for Template Toolkit.
+%description Plugin-Date -l pl
+Wtyczka Date dla pakietu Template Toolkit. S³u¿y ona do generowania
+sformatowanych ³añcuchów znaków opisuj±cych datê.
 
-%package Plugin-%{plugin6}
-Summary:	GD plugins for Template Toolkit
+%package Plugin-DBI
+Summary:	DBI plugin for Template Toolkit - database access
+Summary(pl):	Wtyczka DBI dla pakietu Template Toolkit - dostêp do baz danych
 Group:		Development/Languages/Perl
-%description Plugin-%{plugin6}
-%{plugin6} plugin for Template Toolkit.
+Requires:	%{name} = %{version}
 
-%package Plugin-%{plugin7}
-Summary:	GD plugins for Template Toolkit
-Group:		Development/Languages/Perl
-%description Plugin-%{plugin7}
-%{plugin7} plugin for Template Toolkit.
+%description Plugin-DBI
+DBI plugin for Template Toolkit - interface to the DBI module. It
+provides an interface to the Perl DBI/DBD modules, allowing you to
+integrate SQL queries into your template documents. It also provides
+an interface via the Tie::DBI module (if installed on your system) so
+that you can access database records without having to embed any SQL
+in your templates.
 
-%package Plugin-%{plugin8}
-Summary:	GD plugins for Template Toolkit
-Group:		Development/Languages/Perl
-%description Plugin-%{plugin8}
-%{plugin8} plugin for Template Toolkit.
+%description Plugin-DBI -l pl
+Wtyczka DBI dla pakietu Template Toolkit - bêd±ca interfejsem do
+modu³u DBI. Daje dostêp do modu³ów Perla DBI/DBD, pozwalaj±c na
+integrowanie zapytañ SQL do dokumentów szablonów. Udostêpnia tak¿e
+interfejs poprzez modu³ Tie::DBI (je¶li jest zainstalowany), co
+pozwala na dostêp do rekordów bazy danych bez potrzeby osadzania SQL-a
+w szablonach.
 
-%package Plugin-%{plugin9}
-Summary:	GD plugins for Template Toolkit
+%package Plugin-Image
+Summary:	Image plugin for Template Toolkit - encapsulating information about images
+Summary(pl):	Wtyczka Image dla pakietu Template Toolkit - wstawianie informacji o obrazkach
 Group:		Development/Languages/Perl
-%description Plugin-%{plugin9}
-%{plugin9} plugin for Template Toolkit.
+Requires:	%{name} = %{version}
 
-%package Plugin-%{plugin10}
-Summary:	GD plugins for Template Toolkit
-Group:		Development/Languages/Perl
-%description Plugin-%{plugin10}
-%{plugin10} plugin for Template Toolkit.
+%description Plugin-Image
+Image plugin for Template Toolkit - interface to the Image::Info or
+Image::Size modules for determining the size of image files.
 
-%package Plugin-%{plugin11}
-Summary:	GD plugins for Template Toolkit
-Group:		Development/Languages/Perl
-%description Plugin-%{plugin11}
-%{plugin11} plugin for Template Toolkit.
+%description Plugin-Image -l pl
+Wtyczka Image dla pakietu Template Toolkit - bêd±ca interfejsem do
+modu³u Image::Info lub Image::Size, s³u¿±ca do okre¶lania rozmiaru
+obrazków.
 
-%package Plugin-%{plugin12}
-Summary:	GD plugins for Template Toolkit
+%package Plugin-Pod
+Summary:	Pod plugin for Template Toolkit - Pod parser and object model
+Summary(pl):	Wtyczka Pod dla pakietu Template Toolkit - analizator i model obiektowy Pod
 Group:		Development/Languages/Perl
-%description Plugin-%{plugin12}
-%{plugin12} plugin for Template Toolkit.
+Requires:	%{name} = %{version}
+
+%description Plugin-Pod
+Pod plugin for Template Toolkit - interface to the POD::POM module,
+which parses Pod documents and converts them to a simple object model.
+
+%description Plugin-Pod -l pl
+Wtyczka Pod dla pakietu Template Toolkit - bêd±ca interfejsem do
+modu³u Pod::POM, który analizuje dokumenty Pod i przekszta³ca je na
+prosty obiektowy model.
+
+%package Plugin-Dumper
+Summary:	Dumper plugin for Template Toolkit - dumping data structures
+Summary(pl):	Wtyczka Dumper dla pakietu Template Toolkit - wypisywanie struktur danych
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description Plugin-Dumper
+Dumper plugin for Template Toolkit - interface to Data::Dumper module,
+which translates data structures to strings.
+
+%description Plugin-Dumper -l pl
+Wtyczka Dumper dla pakietu Template Toolkit - bêd±ca interfejsem do
+modu³u Data::Dumper, który przekszta³ca struktury danych na ³añcuchy
+znaków.
+
+%package Plugin-XML-DOM
+Summary:	XML::DOM plugin for Template Toolkit
+Summary(pl):	Wtyczka XML::DOM dla pakietu Template Toolkit
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description Plugin-XML-DOM
+XML::DOM plugin for Template Toolkit - interface to the XML::DOM
+module.
+
+%description Plugin-XML-DOM -l pl
+Wtyczka XML::DOM dla pakietu Template Toolkit - interfejs do modu³u
+XML::DOM.
+
+%package Plugin-XML-RSS
+Summary:	XML::RSS plugin for Template Toolkit - parsing RSS files
+Summary(pl):	Wtyczka XML::RSS dla pakietu Template Toolkit - analiza plików RSS
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description Plugin-XML-RSS
+XML::RSS plugin for Template Toolkit - interface to the XML::RSS
+module. It creates an XML::RSS object, which is then used to parse
+specified RSS file. An RSS (Rich Site Summary) file is typically
+used to store short news 'headlines' describing different links
+within a site.
+
+%description Plugin-XML-RSS -l pl
+Wtyczka XML::RSS dla pakietu Template Toolkit - interfejs do modu³u
+XML::RSS. Tworzy on obiekt XML::RSS, który mo¿na u¿yæ do analizy
+podanego pliku RSS. Pliki RSS (Rich Site Summary - obfite streszczenie
+witryny) zwykle s± u¿ywane do zapisywania krótkich nowinek opisuj±cych
+odno¶niki na witrynie.
+
+%package Plugin-XML-Simple
+Summary:	XML::Simple plugin for Template Toolkit
+Summary(pl):	Wtyczka XML::Simple dla pakietu Template Toolkit
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description Plugin-XML-Simple
+XML::Simple plugin for Template Toolkit - interface to the XML::Simple
+module.
+
+%description Plugin-XML-Simple -l pl
+Wtyczka XML::Simple dla pakietu Template Toolkit - interfejs do modu³u
+XML::Simple.
+
+%package Plugin-XML-Style
+Summary:	XML::Style plugin for Template Toolkit - simple stylesheet-like transformations
+Summary(pl):	Wtyczka XML::Style dla pakietu Template Tookit - proste przekszta³cenia styli
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description Plugin-XML-Style
+XML::Style plugin for Template Toolkit. It defines a filter for
+performing simple stylesheet based transformations of XML text.
+
+%description Plugin-XML-Style -l pl
+Wtyczka XML::Style dla pakietu Template Toolkit. Definiuje ona filtr
+do wykonywania opartych na arkuszu styli przekszta³ceñ tekstu XML.
+
+%package Plugin-XML-XPath
+Summary:	XML::XPath plugin for Template Toolkit
+Summary(pl):	Wtyczka XML::XPath dla pakietu Template Toolkit
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
+
+%description Plugin-XML-XPath
+XML::XPath plugin for Template Toolkit - interface to the XML::XPath
+module. All methods implemented by the XML::XPath modules are
+available. In addition, the XML::XPath::Node::Element module
+implements present($view) and content($view) methods method for
+seamless integration with Template Toolkit VIEWs. The
+XML::XPath::Node::Text module is also adorned with a present($view)
+method which presents itself via the view using the 'text' template.
+
+%description Plugin-XML-XPath -l pl
+Wtyczka XML::XPath dla pakietu Template Toolkit - bêd±ca interfejsem
+do modu³u XML::XPath. Dostêpne s± wszystkie metody zaimplementowane w
+modu³ach XML::XPath, a ponadto modu³ XML::XPath::Node::Element zawiera
+implementacje metod present($view) i content($view) do spójnej
+integracji z widokami Toolkitu. Modu³ XML::XPath::Node::Text jest
+dodatkowo ulepszony o metodê present($view) prezentuj±c± siê przez
+widok przy u¿yciu szablonu 'text'.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -179,16 +286,16 @@ Group:		Development/Languages/Perl
 	TT_IMAGES=%{_examplesdir}/%{name}-%{version}/images \
 	TT_ACCEPT=y
 
-%{__make} OPTIMIZE="%{rpmcflags}"
+%{__make} \
+	OPTIMIZE="%{rpmcflags}"
 
 %{?with_tests:%{__make} test}
-# GD tests fail as in perl-GD (2.01)
-# possible explanation - see perl-GD.spec
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -230,50 +337,50 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_examplesdir}/%{name}-%{version}
 
-%files Plugin-%{plugin1}
+%files Plugin-GD
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/GD
 
-%files Plugin-%{plugin2}
+%files Plugin-Autoformat
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/%{plugin2}.pm
+%{perl_vendorarch}/Template/Plugin/Autoformat.pm
 
-%files Plugin-%{plugin3}
+%files Plugin-Date
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/%{plugin3}.pm
+%{perl_vendorarch}/Template/Plugin/Date.pm
 
-%files Plugin-%{plugin4}
+%files Plugin-DBI
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/%{plugin4}.pm
+%{perl_vendorarch}/Template/Plugin/DBI.pm
 
-%files Plugin-%{plugin5}
+%files Plugin-Image
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/%{plugin5}.pm
+%{perl_vendorarch}/Template/Plugin/Image.pm
 
-%files Plugin-%{plugin6}
+%files Plugin-Pod
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/%{plugin6}.pm
+%{perl_vendorarch}/Template/Plugin/Pod.pm
 
-%files Plugin-%{plugin7}
+%files Plugin-Dumper
 %defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/%{plugin7}.pm
+%{perl_vendorarch}/Template/Plugin/Dumper.pm
 
-%files Plugin-%{plugin8}
+%files Plugin-XML-DOM
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/XML/DOM.pm
 
-%files Plugin-%{plugin9}
+%files Plugin-XML-RSS
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/XML/RSS.pm
 
-%files Plugin-%{plugin10}
+%files Plugin-XML-Simple
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/XML/Simple.pm
 
-%files Plugin-%{plugin11}
+%files Plugin-XML-Style
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/XML/Style.pm
 
-%files Plugin-%{plugin12}
+%files Plugin-XML-XPath
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/XML/XPath.pm
