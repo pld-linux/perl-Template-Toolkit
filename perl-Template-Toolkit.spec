@@ -70,7 +70,7 @@ systemami dokumentów offline.
 %patch0 -p1
 
 %build
-perl Makefile.PL \
+%{__perl} Makefile.PL \
 	TT_DBI=n \
 	TT_LATEX=y \
 	TT_PREFIX=%{_examplesdir}/%{name}-%{version} \
