@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf Changes  HACKING  INSTALL  README  TODO
+gzip -9nf Changes HACKING README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
