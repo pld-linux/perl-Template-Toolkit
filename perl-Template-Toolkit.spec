@@ -12,7 +12,7 @@ Name:		perl-Template-Toolkit
 Version:	2.13
 Release:	2
 # same as perl
-License:	GPL or Artistic
+License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -286,7 +286,6 @@ widok przy u¿yciu szablonu 'text'.
 	TT_PREFIX=%{_examplesdir}/%{name}-%{version} \
 	TT_IMAGES=%{_examplesdir}/%{name}-%{version}/images \
 	TT_ACCEPT=y
-
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
