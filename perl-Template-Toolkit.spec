@@ -121,6 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{perl_vendorarch}/auto/Template/Stash/XS/*.so
 %{_mandir}/man[13]/*
 
-%files examples 
+%files examples
 %defattr(644,root,root,755)
 %{_examplesdir}/%{name}-%{version}
