@@ -1,0 +1,41 @@
+Binary files Template-Toolkit-2.06.orig/.Makefile.PL.swp and Template-Toolkit-2.06/.Makefile.PL.swp differ
+diff -urN Template-Toolkit-2.06.orig/Makefile.PL Template-Toolkit-2.06/Makefile.PL
+--- Template-Toolkit-2.06.orig/Makefile.PL	Wed Sep 12 17:16:31 2001
++++ Template-Toolkit-2.06/Makefile.PL	Wed Feb 20 10:23:46 2002
+@@ -189,20 +189,20 @@
+     return '' unless $main::TT_PREFIX;
+     my $amble =<<'EOF';
+ tt2_install ::
+-	@$(PERL) bin/tt2inst -v "$(TT_PREFIX)"
++	@$(PERL) bin/tt2inst -v "$(DESTDIR)$(TT_PREFIX)"
+ 
+ tt2_splash ::
+-	@$(PERL) -I lib bin/gifsplash -v
++	@$(PERL) -I lib -I blib -I blib/lib -I blib/arch bin/gifsplash -v -i "$(DESTDIR)/usr/src/examples/tt2/"
+ 
+ EOF
+     $amble .=<<EOF if $main::TT_BUILD_DOCS;
+ tt2_html_docs ::
+-	\@\$(PERL) bin/ttree -v -f "\$(TT_PREFIX)/$TT_DOCS_CFG"
++	\@\$(PERL) bin/ttree -v -f "\$(DESTDIR)\$(TT_PREFIX)/$TT_DOCS_CFG"
+ 
+ EOF
+     $amble .=<<EOF if $main::TT_EXAMPLES;
+ tt2_examples ::
+-	\@\$(PERL) bin/ttree -v -f "\$(TT_PREFIX)/$TT_EXAMPLE_CFG"
++	\@\$(PERL) bin/ttree -v -f "\$(DESTDIR)\$(TT_PREFIX)/$TT_EXAMPLE_CFG"
+ 
+ EOF
+     return $amble;
+diff -urN Template-Toolkit-2.06.orig/bin/gifsplash Template-Toolkit-2.06/bin/gifsplash
+--- Template-Toolkit-2.06.orig/bin/gifsplash	Fri Sep  7 09:25:18 2001
++++ Template-Toolkit-2.06/bin/gifsplash	Tue Feb 19 16:08:20 2002
+@@ -43,7 +43,7 @@
+     INCLUDE_PATH => "$inst/templates",
+     PRE_PROCESS  => 'html/rgb',
+     OUTPUT_PATH  => $dest,
+-);
++) || die Template->error(), "\n";
+ 
+ my $vars = {
+     gifs    => load_gifs($src),
