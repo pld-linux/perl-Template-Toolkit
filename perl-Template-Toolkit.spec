@@ -18,7 +18,7 @@ Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar
 # Source0-md5:	a69cc8947d2162ec898708fd3ff44b51
 Patch0:		%{name}-paths.patch
 Patch1:		%{name}-image.patch
-URL:		http://www.template-toolkit.org
+URL:		http://www.template-toolkit.org/
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
