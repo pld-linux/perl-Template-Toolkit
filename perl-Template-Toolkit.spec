@@ -31,7 +31,7 @@ BuildRequires:	perl-XML-Simple
 BuildRequires:	perl-XML-XPath >= 1.00
 BuildRequires:	perl-libxml-enno
 BuildRequires:	perl(XML::DOM) >= 1.27
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 Requires:	tetex-dvips
 Requires:	tetex-latex
 Requires:	tetex-pdftex
