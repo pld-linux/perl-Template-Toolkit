@@ -10,21 +10,23 @@ License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
-BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6.1
-BuildRequires:	perl-AppConfig
+BuildRequires:	perl(File::Spec) >= 0.6
+BuildRequires:	perl-AppConfig >= 1.52
 BuildRequires:	perl-DBI >= 1.14
 BuildRequires:	perl-GD >= 1.32
-BuildRequires:	perl-GD-TextUtil >= 0.80
 BuildRequires:	perl-GD-Graph >= 1.33
 BuildRequires:	perl-GD-Graph3d >= 0.55
+BuildRequires:	perl-GD-TextUtil >= 0.80
 BuildRequires:	perl-Pod-POM >= 0.1
 BuildRequires:	perl-Text-Autoformat >= 1.03
 BuildRequires:	perl-XML-Parser >= 2.23
 BuildRequires:	perl-XML-RSS >= 0.9
+BuildRequires:	perl-XML-Simple
 BuildRequires:	perl-XML-XPath >= 1.00
 BuildRequires:	perl-libxml-enno
 BuildRequires:	perl(XML::DOM) >= 1.27
+BuildRequires:	rpm-perlprov >= 3.0.3-16
 Requires:	tetex-dvips
 Requires:	tetex-latex
 Requires:	tetex-pdftex
@@ -64,7 +66,13 @@ systemami dokumentów offline.
 %patch0 -p1
 
 %build
-perl Makefile.PL TT_DBI=n TT_LATEX=y TT_PREFIX=%{_examplesdir}/tt2 TT_IMAGES=%{_examplesdir}/tt2/images TT_ACCEPT=y
+perl Makefile.PL \
+	TT_DBI=n \
+	TT_LATEX=y \
+	TT_PREFIX=%{_examplesdir}/%{name}-%{version} \
+	TT_IMAGES=%{_examplesdir}/%{name}-%{version}/images \
+	TT_ACCEPT=y
+
 %{__make}
 
 %install
@@ -78,9 +86,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes HACKING README TODO
-%doc %{_examplesdir}/tt2
 %attr(755,root,root) %{_bindir}/*
 %{perl_sitearch}/Template.pm
 %{perl_sitearch}/Template
 %{perl_sitearch}/auto/Template
 %{_mandir}/man[13]/*
+%{_examplesdir}/%{name}-%{version}
