@@ -5,7 +5,7 @@ Summary:	Template::Toolkit perl extension
 Summary(pl):	Rozszerzenie perla: Template::Toolkit
 Name:		perl-Template-Toolkit
 Version:	2.07
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -30,7 +30,6 @@ BuildRequires:	rpm-perlprov >= 3.0.3-16
 Requires:	tetex-dvips
 Requires:	tetex-latex
 Requires:	tetex-pdftex
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -73,7 +72,7 @@ perl Makefile.PL \
 	TT_IMAGES=%{_examplesdir}/%{name}-%{version}/images \
 	TT_ACCEPT=y
 
-%{__make}
+%{__make} OPTIMIZE="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -89,6 +88,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{perl_sitearch}/Template.pm
 %{perl_sitearch}/Template
-%{perl_sitearch}/auto/Template
+%dir %{perl_sitearch}/auto/Template
+%dir %{perl_sitearch}/auto/Template/Stash
+%dir %{perl_sitearch}/auto/Template/Stash/XS
+%{perl_sitearch}/auto/Template/Stash/XS/*.bs
+%attr(755,root,root) %{perl_sitearch}/auto/Template/Stash/XS/*.so
 %{_mandir}/man[13]/*
 %{_examplesdir}/%{name}-%{version}
