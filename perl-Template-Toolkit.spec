@@ -5,7 +5,7 @@ Summary:	Template-Toolkit perl extension
 Summary(pl):	Rozszerzenie perla: Template-Toolkit
 Name:		perl-Template-Toolkit
 Version:	2.06
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Group(cs):	Vývojové prostøedky/Programovací jazyky/Perl
@@ -78,7 +78,7 @@ systemami dokumentów offline.
 %patch0 -p1
 
 %build
-perl Makefile.PL TT_DBI=n TT_LATEX=y TT_PREFIX=%{_examplesdir}/tt2 TT_ACCEPT=y
+perl Makefile.PL TT_DBI=n TT_LATEX=y TT_PREFIX=%{_examplesdir}/tt2 TT_IMAGES=%{_examplesdir}/tt2/images TT_ACCEPT=y
 %{__make}
 
 %install
