@@ -1,6 +1,7 @@
 #
 # Conditional build:
-# _with_tests - perform "make test"
+# _without_autodeps	- don't BR packages needed only for resolving deps
+# _with_tests		- perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Template
@@ -21,7 +22,7 @@ URL:		http://www.template-toolkit.org
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
-%if 0%{?_with_tests:1}
+%if 0%{!?_without_autodeps:1}%{?_with_tests:1}
 BuildRequires:	perl-DBI >= 1.14
 BuildRequires:	perl-GD >= 1.32
 BuildRequires:	perl-GD-Graph >= 1.33
@@ -123,4 +124,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man[13]/*
 
 %files examples 
+%defattr(644,root,root,755)
 %{_examplesdir}/%{name}-%{version}
