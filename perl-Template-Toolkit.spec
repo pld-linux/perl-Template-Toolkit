@@ -1,11 +1,15 @@
+#
+# Conditional build:
+# _with_tests - perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Template
 %define	pnam	Toolkit
-Summary:	Template::Toolkit perl extension
+Summary:	Template::Toolkit Perl extension
 Summary(pl):	Rozszerzenie perla: Template::Toolkit
 Name:		perl-Template-Toolkit
-Version:	2.07
-Release:	3
+Version:	2.08
+Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -73,6 +77,10 @@ perl Makefile.PL \
 	TT_ACCEPT=y
 
 %{__make} OPTIMIZE="%{rpmcflags}"
+
+%{?_with_tests:%{__make} test}
+# GD tests fail as in perl-GD (2.01)
+# possible explanation - see perl-GD.spec
 
 %install
 rm -rf $RPM_BUILD_ROOT
