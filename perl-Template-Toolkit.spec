@@ -9,7 +9,7 @@ Summary:	Template::Toolkit Perl extension
 Summary(pl):	Rozszerzenie perla: Template::Toolkit
 Name:		perl-Template-Toolkit
 Version:	2.08
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -31,7 +31,7 @@ BuildRequires:	perl-XML-Simple
 BuildRequires:	perl-XML-XPath >= 1.00
 BuildRequires:	perl-libxml-enno
 BuildRequires:	perl(XML::DOM) >= 1.27
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	tetex-dvips
 Requires:	tetex-latex
 Requires:	tetex-pdftex
@@ -71,6 +71,7 @@ systemami dokumentów offline.
 
 %build
 %{__perl} Makefile.PL \
+	INSTALLDIRS=vendor  \
 	TT_DBI=n \
 	TT_LATEX=y \
 	TT_PREFIX=%{_examplesdir}/%{name}-%{version} \
@@ -95,12 +96,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes HACKING README TODO
 %attr(755,root,root) %{_bindir}/*
-%{perl_sitearch}/Template.pm
-%{perl_sitearch}/Template
-%dir %{perl_sitearch}/auto/Template
-%dir %{perl_sitearch}/auto/Template/Stash
-%dir %{perl_sitearch}/auto/Template/Stash/XS
-%{perl_sitearch}/auto/Template/Stash/XS/*.bs
-%attr(755,root,root) %{perl_sitearch}/auto/Template/Stash/XS/*.so
+%{perl_vendorarch}/Template.pm
+%{perl_vendorarch}/Template
+%dir %{perl_vendorarch}/auto/Template
+%dir %{perl_vendorarch}/auto/Template/Stash
+%dir %{perl_vendorarch}/auto/Template/Stash/XS
+%{perl_vendorarch}/auto/Template/Stash/XS/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Template/Stash/XS/*.so
 %{_mandir}/man[13]/*
 %{_examplesdir}/%{name}-%{version}
