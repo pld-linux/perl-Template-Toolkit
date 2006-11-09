@@ -19,9 +19,9 @@ Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar
 # Source0-md5:	26adb4e6d3f2f89e2b54a43f73b70a29
 Patch0:		%{name}-paths.patch
 URL:		http://www.template-toolkit.org/
-BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
+BuildRequires:	perl-devel >= 1:5.8.0
 %if %{with autodeps} || %{with tests}
 BuildRequires:	perl-Pod-POM >= 0.1
 BuildRequires:	perl-Text-Autoformat >= 1.03
@@ -72,7 +72,7 @@ Przyk³ady zastosowania Template Toolkit.
 Summary:	Autoformat plugin for Template Toolkit - text formatting
 Summary(pl):	Wtyczka Autoformat dla pakietu Template Toolkit - formatowanie tekstu
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description Plugin-Autoformat
 Autoformat plugin for Template Toolkit - interface to Text::Autoformat
@@ -87,7 +87,7 @@ formatowanie tekstu.
 Summary:	Date plugin for Template Toolkit - date formatting
 Summary(pl):	Wtyczka Date dla pakietu Template Toolkit - formatowanie daty
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 #Requires:	perl-Date-Calc
 Requires:	perl-Date-Manip
 
@@ -102,7 +102,7 @@ sformatowanych ³añcuchów znaków opisuj±cych datê.
 Summary:	Dumper plugin for Template Toolkit - dumping data structures
 Summary(pl):	Wtyczka Dumper dla pakietu Template Toolkit - wypisywanie struktur danych
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description Plugin-Dumper
 Dumper plugin for Template Toolkit - interface to Data::Dumper module,
@@ -117,7 +117,7 @@ znaków.
 Summary:	Image plugin for Template Toolkit - encapsulating information about images
 Summary(pl):	Wtyczka Image dla pakietu Template Toolkit - wstawianie informacji o obrazkach
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description Plugin-Image
 Image plugin for Template Toolkit - interface to the Image::Info or
@@ -132,7 +132,7 @@ obrazków.
 Summary:	Pod plugin for Template Toolkit - Pod parser and object model
 Summary(pl):	Wtyczka Pod dla pakietu Template Toolkit - analizator i model obiektowy Pod
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description Plugin-Pod
 Pod plugin for Template Toolkit - interface to the POD::POM module,
@@ -166,8 +166,8 @@ rm -rf $RPM_BUILD_ROOT
 # For arch-independent plugins. Plugins shipped with TT are
 # arch-independent too, but moving them to %{perl_vendorlib}
 # is PITA
-%{__install} -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template
-%{__install} -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template/Plugin
+install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template
+install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template/Plugin
 
 %clean
 rm -rf $RPM_BUILD_ROOT
