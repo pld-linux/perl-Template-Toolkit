@@ -7,7 +7,7 @@
 %define		pdir	Template
 %define		pnam	Toolkit
 Summary:	Fast, powerful and easily extensible template processing system
-Summary(pl):	Rozbudowany i wydajny system szablonów
+Summary(pl.UTF-8):   Rozbudowany i wydajny system szablonÃ³w
 Name:		perl-Template-Toolkit
 Version:	2.15
 Release:	1
@@ -43,34 +43,34 @@ content. A number of Perl scripts are also provided which can greatly
 simplify the process of creating and managing static web content and
 other offline document systems.
 
-%description -l pl
-Template Toolkit to zestaw modu³ów z implementacj± szybkiego,
-elastycznego, potê¿nego i rozszerzalnego systemu przetwarzania
-wzorców. Oryginalnie zosta³ zaprojektowany i nadal jest u¿ywany
-g³ównie do generowania dynamicznych stron WWW, ale mo¿e byæ tak¿e
-u¿yty do przetwarzania dowolnych innych rodzajów dokumentów
+%description -l pl.UTF-8
+Template Toolkit to zestaw moduÅ‚Ã³w z implementacjÄ… szybkiego,
+elastycznego, potÄ™Å¼nego i rozszerzalnego systemu przetwarzania
+wzorcÃ³w. Oryginalnie zostaÅ‚ zaprojektowany i nadal jest uÅ¼ywany
+gÅ‚Ã³wnie do generowania dynamicznych stron WWW, ale moÅ¼e byÄ‡ takÅ¼e
+uÅ¼yty do przetwarzania dowolnych innych rodzajÃ³w dokumentÃ³w
 tekstowych: HTML, XML, POD, PostScript, LaTeX itd.
 
-Mo¿e byæ u¿ywany jako samodzielny modu³ Perla, lub wbudowany w serwer
+MoÅ¼e byÄ‡ uÅ¼ywany jako samodzielny moduÅ‚ Perla, lub wbudowany w serwer
 Apache/mod_perl do wysoko konfigurowalnego generowania dynamicznych
-stron WWW. Za³±czonych jest wiele skryptów Perla, które mog± upro¶ciæ
-proces tworzenia i zarz±dzania statycznymi stronami WWW oraz innymi
-systemami dokumentów offline.
+stron WWW. ZaÅ‚Ä…czonych jest wiele skryptÃ³w Perla, ktÃ³re mogÄ… uproÅ›ciÄ‡
+proces tworzenia i zarzÄ…dzania statycznymi stronami WWW oraz innymi
+systemami dokumentÃ³w offline.
 
 %package examples
 Summary:	Examples for Template Toolkit
-Summary(pl):	Przyk³ady zastosowania pakietu Template Toolkit
+Summary(pl.UTF-8):   PrzykÅ‚ady zastosowania pakietu Template Toolkit
 Group:		Development/Languages/Perl
 
 %description examples
 Examples for Template Toolkit
 
-%description examples -l pl
-Przyk³ady zastosowania Template Toolkit.
+%description examples -l pl.UTF-8
+PrzykÅ‚ady zastosowania Template Toolkit.
 
 %package Plugin-Autoformat
 Summary:	Autoformat plugin for Template Toolkit - text formatting
-Summary(pl):	Wtyczka Autoformat dla pakietu Template Toolkit - formatowanie tekstu
+Summary(pl.UTF-8):   Wtyczka Autoformat dla pakietu Template Toolkit - formatowanie tekstu
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -78,14 +78,14 @@ Requires:	%{name} = %{version}-%{release}
 Autoformat plugin for Template Toolkit - interface to Text::Autoformat
 module which provides advanced text wrapping and formatting.
 
-%description Plugin-Autoformat -l pl
+%description Plugin-Autoformat -l pl.UTF-8
 Wtyczka Autoformat dla pakietu Template Toolkit. Stanowi ona interfejs
-do modu³u Text::Autoformat umo¿liwiaj±cego zaawansowane zawijanie i
+do moduÅ‚u Text::Autoformat umoÅ¼liwiajÄ…cego zaawansowane zawijanie i
 formatowanie tekstu.
 
 %package Plugin-Date
 Summary:	Date plugin for Template Toolkit - date formatting
-Summary(pl):	Wtyczka Date dla pakietu Template Toolkit - formatowanie daty
+Summary(pl.UTF-8):   Wtyczka Date dla pakietu Template Toolkit - formatowanie daty
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 #Requires:	perl-Date-Calc
@@ -94,13 +94,13 @@ Requires:	perl-Date-Manip
 %description Plugin-Date
 Date plugin for Template Toolkit - to generate formatted date strings.
 
-%description Plugin-Date -l pl
-Wtyczka Date dla pakietu Template Toolkit. S³u¿y ona do generowania
-sformatowanych ³añcuchów znaków opisuj±cych datê.
+%description Plugin-Date -l pl.UTF-8
+Wtyczka Date dla pakietu Template Toolkit. SÅ‚uÅ¼y ona do generowania
+sformatowanych Å‚aÅ„cuchÃ³w znakÃ³w opisujÄ…cych datÄ™.
 
 %package Plugin-Dumper
 Summary:	Dumper plugin for Template Toolkit - dumping data structures
-Summary(pl):	Wtyczka Dumper dla pakietu Template Toolkit - wypisywanie struktur danych
+Summary(pl.UTF-8):   Wtyczka Dumper dla pakietu Template Toolkit - wypisywanie struktur danych
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -108,14 +108,14 @@ Requires:	%{name} = %{version}-%{release}
 Dumper plugin for Template Toolkit - interface to Data::Dumper module,
 which translates data structures to strings.
 
-%description Plugin-Dumper -l pl
-Wtyczka Dumper dla pakietu Template Toolkit - bêd±ca interfejsem do
-modu³u Data::Dumper, który przekszta³ca struktury danych na ³añcuchy
-znaków.
+%description Plugin-Dumper -l pl.UTF-8
+Wtyczka Dumper dla pakietu Template Toolkit - bÄ™dÄ…ca interfejsem do
+moduÅ‚u Data::Dumper, ktÃ³ry przeksztaÅ‚ca struktury danych na Å‚aÅ„cuchy
+znakÃ³w.
 
 %package Plugin-Image
 Summary:	Image plugin for Template Toolkit - encapsulating information about images
-Summary(pl):	Wtyczka Image dla pakietu Template Toolkit - wstawianie informacji o obrazkach
+Summary(pl.UTF-8):   Wtyczka Image dla pakietu Template Toolkit - wstawianie informacji o obrazkach
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -123,14 +123,14 @@ Requires:	%{name} = %{version}-%{release}
 Image plugin for Template Toolkit - interface to the Image::Info or
 Image::Size modules for determining the size of image files.
 
-%description Plugin-Image -l pl
-Wtyczka Image dla pakietu Template Toolkit - bêd±ca interfejsem do
-modu³u Image::Info lub Image::Size, s³u¿±ca do okre¶lania rozmiaru
-obrazków.
+%description Plugin-Image -l pl.UTF-8
+Wtyczka Image dla pakietu Template Toolkit - bÄ™dÄ…ca interfejsem do
+moduÅ‚u Image::Info lub Image::Size, sÅ‚uÅ¼Ä…ca do okreÅ›lania rozmiaru
+obrazkÃ³w.
 
 %package Plugin-Pod
 Summary:	Pod plugin for Template Toolkit - Pod parser and object model
-Summary(pl):	Wtyczka Pod dla pakietu Template Toolkit - analizator i model obiektowy Pod
+Summary(pl.UTF-8):   Wtyczka Pod dla pakietu Template Toolkit - analizator i model obiektowy Pod
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -138,9 +138,9 @@ Requires:	%{name} = %{version}-%{release}
 Pod plugin for Template Toolkit - interface to the POD::POM module,
 which parses Pod documents and converts them to a simple object model.
 
-%description Plugin-Pod -l pl
-Wtyczka Pod dla pakietu Template Toolkit - bêd±ca interfejsem do
-modu³u Pod::POM, który analizuje dokumenty Pod i przekszta³ca je na
+%description Plugin-Pod -l pl.UTF-8
+Wtyczka Pod dla pakietu Template Toolkit - bÄ™dÄ…ca interfejsem do
+moduÅ‚u Pod::POM, ktÃ³ry analizuje dokumenty Pod i przeksztaÅ‚ca je na
 prosty obiektowy model.
 
 %prep
