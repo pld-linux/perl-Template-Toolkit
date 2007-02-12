@@ -14,7 +14,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
-Source0:	ftp://sunsite.icm.edu.pl/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	1a09711602b6ea8a69ef522c1ca5f7ae
 #Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
