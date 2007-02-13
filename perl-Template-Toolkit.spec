@@ -7,7 +7,7 @@
 %define		pdir	Template
 %define		pnam	Toolkit
 Summary:	Fast, powerful and easily extensible template processing system
-Summary(pl.UTF-8):   Rozbudowany i wydajny system szablonów
+Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
 Version:	2.18
 Release:	1
@@ -59,7 +59,7 @@ systemami dokumentów offline.
 
 %package examples
 Summary:	Examples for Template Toolkit
-Summary(pl.UTF-8):   Przykłady zastosowania pakietu Template Toolkit
+Summary(pl.UTF-8):	Przykłady zastosowania pakietu Template Toolkit
 Group:		Development/Languages/Perl
 
 %description examples
@@ -70,7 +70,7 @@ Przykłady zastosowania Template Toolkit.
 
 %package Plugin-Autoformat
 Summary:	Autoformat plugin for Template Toolkit - text formatting
-Summary(pl.UTF-8):   Wtyczka Autoformat dla pakietu Template Toolkit - formatowanie tekstu
+Summary(pl.UTF-8):	Wtyczka Autoformat dla pakietu Template Toolkit - formatowanie tekstu
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -85,7 +85,7 @@ formatowanie tekstu.
 
 %package Plugin-Date
 Summary:	Date plugin for Template Toolkit - date formatting
-Summary(pl.UTF-8):   Wtyczka Date dla pakietu Template Toolkit - formatowanie daty
+Summary(pl.UTF-8):	Wtyczka Date dla pakietu Template Toolkit - formatowanie daty
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 #Requires:	perl-Date-Calc
@@ -100,7 +100,7 @@ sformatowanych łańcuchów znaków opisujących datę.
 
 %package Plugin-Dumper
 Summary:	Dumper plugin for Template Toolkit - dumping data structures
-Summary(pl.UTF-8):   Wtyczka Dumper dla pakietu Template Toolkit - wypisywanie struktur danych
+Summary(pl.UTF-8):	Wtyczka Dumper dla pakietu Template Toolkit - wypisywanie struktur danych
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -115,7 +115,7 @@ znaków.
 
 %package Plugin-Image
 Summary:	Image plugin for Template Toolkit - encapsulating information about images
-Summary(pl.UTF-8):   Wtyczka Image dla pakietu Template Toolkit - wstawianie informacji o obrazkach
+Summary(pl.UTF-8):	Wtyczka Image dla pakietu Template Toolkit - wstawianie informacji o obrazkach
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -130,7 +130,7 @@ obrazków.
 
 %package Plugin-Pod
 Summary:	Pod plugin for Template Toolkit - Pod parser and object model
-Summary(pl.UTF-8):   Wtyczka Pod dla pakietu Template Toolkit - analizator i model obiektowy Pod
+Summary(pl.UTF-8):	Wtyczka Pod dla pakietu Template Toolkit - analizator i model obiektowy Pod
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
