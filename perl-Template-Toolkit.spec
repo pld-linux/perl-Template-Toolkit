@@ -10,7 +10,7 @@ Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
 Version:	2.18
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
@@ -167,7 +167,7 @@ rm -rf $RPM_BUILD_ROOT
 # arch-independent too, but moving them to %{perl_vendorlib}
 # is PITA
 install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template
-install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template/Plugin
+install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template/{Plugin,Provider,Stash}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -181,8 +181,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Template/Stash
 %{perl_vendorarch}/Template/Namespace
 %dir %{perl_vendorarch}/Template/Plugin
-# For arch-independent plugins
-%dir %{perl_vendorlib}/Template/Plugin
 # These are not plugins, but base classes
 %{perl_vendorarch}/Template/Plugin/Filter.pm
 %{perl_vendorarch}/Template/Plugin/Procedural.pm
@@ -216,6 +214,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/Template::Plugin::I[!m]*
 %{_mandir}/man3/Template::Plugin::P[!o]*
 
+# For arch-independent plugins
+%dir %{perl_vendorlib}/Template/Plugin
+%dir %{perl_vendorlib}/Template/Provider
+%dir %{perl_vendorlib}/Template/Stash
 
 %files examples
 %defattr(644,root,root,755)
