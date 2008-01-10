@@ -154,6 +154,7 @@ prosty obiektowy model.
 	TT_IMAGES=%{_examplesdir}/%{name}-%{version}/images \
 	TT_ACCEPT=y
 %{__make} \
+	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
 %{?with_tests:%{__make} test}
