@@ -18,6 +18,7 @@ Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{versio
 # Source0-md5:	1a09711602b6ea8a69ef522c1ca5f7ae
 #Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
+Patch1:		%{name}-stashXS.patch
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
@@ -146,6 +147,7 @@ prosty obiektowy model.
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
+%patch1 -p0
 
 %build
 %{__perl} Makefile.PL \

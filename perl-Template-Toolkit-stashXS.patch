@@ -1,0 +1,19 @@
+On Mon Oct 23 11:25:30 2006, SMPETERS wrote:
+> A missing pair of parens causes Template-Toolkit 2.15 to fail to compile
+> with bleadperl.  The following patch fixes the problem.
+> 
+
+Actually, there is also some test code that fails an assertion, so, the
+following patch fixes the compilation and the test failures.
+
+--- xs/Stash.xs.old     2007-01-09 20:27:49.000000000 -0600
++++ xs/Stash.xs 2007-01-09 22:06:30.000000000 -0600
+@@ -991,7 +991,7 @@
+     STRLEN jlen;
+     char *joint;
+
+-    if ((svp = av_fetch(args, 0, FALSE)) != NULL) {
++    if (args && (svp = av_fetch(args, 0, FALSE)) != NULL) {
+         joint = SvPV(*svp, jlen);
+     } else {
+         joint = " ";
