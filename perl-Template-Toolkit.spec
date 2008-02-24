@@ -9,16 +9,15 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	2.18
-Release:	4
+Version:	2.19
+Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	1a09711602b6ea8a69ef522c1ca5f7ae
+# Source0-md5:	5c886d392ca57a13ded91fa64834913c
 #Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
-Patch1:		%{name}-stashXS.patch
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
@@ -147,20 +146,18 @@ prosty obiektowy model.
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
-%patch1 -p0
 
 %build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor  \
 	TT_PREFIX=%{_examplesdir}/%{name}-%{version} \
 	TT_IMAGES=%{_examplesdir}/%{name}-%{version}/images \
-	TT_XS_DEFAULT=n \
 	TT_ACCEPT=y
 %{__make} \
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
-%{?with_tests:%{__make} test ||:}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -196,7 +193,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Template/Plugin/Format.pm
 %{perl_vendorarch}/Template/Plugin/HTML.pm
 %{perl_vendorarch}/Template/Plugin/Iterator.pm
-%{perl_vendorarch}/Template/Plugin/Math.pm
 %{perl_vendorarch}/Template/Plugin/String.pm
 %{perl_vendorarch}/Template/Plugin/Table.pm
 %{perl_vendorarch}/Template/Plugin/URL.pm
