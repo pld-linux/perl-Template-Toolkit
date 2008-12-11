@@ -9,15 +9,16 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	2.19
+Version:	2.20
 Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	5c886d392ca57a13ded91fa64834913c
+# Source0-md5:	b1fac2d5df7b6b5f194af0ac0d9b7c73
 #Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
+Patch1:		%{name}-extras.patch
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
@@ -146,12 +147,17 @@ prosty obiektowy model.
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor  \
 	TT_PREFIX=%{_examplesdir}/%{name}-%{version} \
 	TT_IMAGES=%{_examplesdir}/%{name}-%{version}/images \
+	TT_BUILD_DOCS=y \
+	TT_SPLASH_DOCS=y \
+	TT_EXAMPLES=y \
+	TT_EXTRAS=y \
 	TT_ACCEPT=y
 %{__make} \
 	CC="%{__cc}" \
