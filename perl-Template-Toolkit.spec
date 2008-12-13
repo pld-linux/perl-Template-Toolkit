@@ -16,7 +16,6 @@ License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b1fac2d5df7b6b5f194af0ac0d9b7c73
-#Source0:	http://www.template-toolkit.com/download/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
 Patch1:		%{name}-extras.patch
 URL:		http://www.template-toolkit.org/
@@ -176,6 +175,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template
 install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template/{Plugin,Provider,Stash}
 
+# check-files cleanup
+find $RPM_BUILD_ROOT%{perl_vendorarch}/Template -name '*.pod' | xargs rm -f
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -192,6 +194,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Template/Plugin/Filter.pm
 %{perl_vendorarch}/Template/Plugin/Procedural.pm
 # Simple plugins with no excessive requirements
+%{perl_vendorarch}/Template/Plugin/Assert.pm
 %{perl_vendorarch}/Template/Plugin/CGI.pm
 %{perl_vendorarch}/Template/Plugin/Datafile.pm
 %{perl_vendorarch}/Template/Plugin/Directory.pm
@@ -199,6 +202,8 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Template/Plugin/Format.pm
 %{perl_vendorarch}/Template/Plugin/HTML.pm
 %{perl_vendorarch}/Template/Plugin/Iterator.pm
+%{perl_vendorarch}/Template/Plugin/Math.pm
+%{perl_vendorarch}/Template/Plugin/Scalar.pm
 %{perl_vendorarch}/Template/Plugin/String.pm
 %{perl_vendorarch}/Template/Plugin/Table.pm
 %{perl_vendorarch}/Template/Plugin/URL.pm
@@ -215,6 +220,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/Template::P[!l]*
 %{_mandir}/man3/Template::Plugin[!:]*
 %{_mandir}/man3/Template::Plugin::[!ADIP]*
+%{_mandir}/man3/Template::Plugin::Assert.3pm*
 %{_mandir}/man3/Template::Plugin::D[!au]*
 %{_mandir}/man3/Template::Plugin::Dat[!e]*
 %{_mandir}/man3/Template::Plugin::I[!m]*
