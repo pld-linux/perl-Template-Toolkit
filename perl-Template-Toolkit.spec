@@ -9,13 +9,14 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	2.20
+Version:	2.22
 Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	b1fac2d5df7b6b5f194af0ac0d9b7c73
+# Source0-md5:	d98277f6420e5da6b93d99a8db2b3934
+# seems obsolete
 Patch0:		%{name}-paths.patch
 Patch1:		%{name}-extras.patch
 URL:		http://www.template-toolkit.org/
@@ -27,6 +28,7 @@ BuildRequires:	perl-Pod-POM >= 0.1
 BuildRequires:	perl-Text-Autoformat >= 1.03
 %endif
 BuildRequires:	rpm-perlprov >= 4.1-13
+Obsoletes:	perl-Template-Toolkit-examples
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -56,32 +58,6 @@ Apache/mod_perl do wysoko konfigurowalnego generowania dynamicznych
 stron WWW. Załączonych jest wiele skryptów Perla, które mogą uprościć
 proces tworzenia i zarządzania statycznymi stronami WWW oraz innymi
 systemami dokumentów offline.
-
-%package examples
-Summary:	Examples for Template Toolkit
-Summary(pl.UTF-8):	Przykłady zastosowania pakietu Template Toolkit
-Group:		Development/Languages/Perl
-
-%description examples
-Examples for Template Toolkit
-
-%description examples -l pl.UTF-8
-Przykłady zastosowania Template Toolkit.
-
-%package Plugin-Autoformat
-Summary:	Autoformat plugin for Template Toolkit - text formatting
-Summary(pl.UTF-8):	Wtyczka Autoformat dla pakietu Template Toolkit - formatowanie tekstu
-Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}-%{release}
-
-%description Plugin-Autoformat
-Autoformat plugin for Template Toolkit - interface to Text::Autoformat
-module which provides advanced text wrapping and formatting.
-
-%description Plugin-Autoformat -l pl.UTF-8
-Wtyczka Autoformat dla pakietu Template Toolkit. Stanowi ona interfejs
-do modułu Text::Autoformat umożliwiającego zaawansowane zawijanie i
-formatowanie tekstu.
 
 %package Plugin-Date
 Summary:	Date plugin for Template Toolkit - date formatting
@@ -145,8 +121,8 @@ prosty obiektowy model.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
-%patch1 -p1
+#%patch0 -p1
+#%patch1 -p1
 
 %build
 %{__perl} Makefile.PL \
@@ -230,15 +206,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorlib}/Template/Plugin
 %dir %{perl_vendorlib}/Template/Provider
 %dir %{perl_vendorlib}/Template/Stash
-
-%files examples
-%defattr(644,root,root,755)
-%{_examplesdir}/%{name}-%{version}
-
-%files Plugin-Autoformat
-%defattr(644,root,root,755)
-%{perl_vendorarch}/Template/Plugin/Autoformat.pm
-%{_mandir}/man3/Template::Plugin::Autoformat*
 
 %files Plugin-Date
 %defattr(644,root,root,755)
