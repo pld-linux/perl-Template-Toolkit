@@ -22,6 +22,7 @@ Patch1:		%{name}-extras.patch
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
+%{?with_tests:BuildRequires:	perl-Encode}
 BuildRequires:	perl-devel >= 1:5.8.0
 %if %{with autodeps} || %{with tests}
 BuildRequires:	perl-Pod-POM >= 0.1
