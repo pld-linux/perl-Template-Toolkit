@@ -16,9 +16,6 @@ License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	d98277f6420e5da6b93d99a8db2b3934
-# seems obsolete
-Patch0:		%{name}-paths.patch
-Patch1:		%{name}-extras.patch
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.6
 BuildRequires:	perl-AppConfig >= 1.52
@@ -65,7 +62,6 @@ Summary:	Date plugin for Template Toolkit - date formatting
 Summary(pl.UTF-8):	Wtyczka Date dla pakietu Template Toolkit - formatowanie daty
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
-#Requires:	perl-Date-Calc
 Requires:	perl-Date-Manip
 
 %description Plugin-Date
@@ -122,8 +118,6 @@ prosty obiektowy model.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-#%patch0 -p1
-#%patch1 -p1
 
 %build
 %{__perl} Makefile.PL \
@@ -161,7 +155,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes HACKING README TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/tpage
+%attr(755,root,root) %{_bindir}/ttree
 %{perl_vendorarch}/Template.pm
 %{perl_vendorarch}/Template/*.pm
 %{perl_vendorarch}/Template/Stash
@@ -191,7 +186,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/Template/Stash/XS
 %{perl_vendorarch}/auto/Template/Stash/XS/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Template/Stash/XS/*.so
-%{_mandir}/man1/*
+%{_mandir}/man1/tpage.1*
+%{_mandir}/man1/ttree.1*
 %{_mandir}/man3/Template.*
 %{_mandir}/man3/Template::[!P]*
 %{_mandir}/man3/Template::P[!l]*
