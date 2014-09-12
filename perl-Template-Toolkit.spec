@@ -184,7 +184,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/Template
 %dir %{perl_vendorarch}/auto/Template/Stash
 %dir %{perl_vendorarch}/auto/Template/Stash/XS
-%{perl_vendorarch}/auto/Template/Stash/XS/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Template/Stash/XS/*.so
 %{_mandir}/man1/tpage.1*
 %{_mandir}/man1/ttree.1*
