@@ -1,6 +1,5 @@
 #
 # Conditional build:
-%bcond_without	autodeps	# don't BR packages needed only for resolving deps
 %bcond_without	tests		# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
@@ -9,19 +8,20 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	2.25
+Version:	2.26
 Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	6be78743caf5fafe8de4a17c2d0c72ff
+# Source0-md5:	4c289856ebee446ebbe2629b24f0734b
 URL:		http://www.template-toolkit.org/
-BuildRequires:	perl(File::Spec) >= 0.6
-BuildRequires:	perl-AppConfig >= 1.52
-%{?with_tests:BuildRequires:	perl-Encode}
+BuildRequires:	perl(File::Spec) >= 0.8
+BuildRequires:	perl-AppConfig >= 1.56
+BuildRequires:	perl-File-Temp >= 0.12
 BuildRequires:	perl-devel >= 1:5.8.0
-%if %{with autodeps} || %{with tests}
+%if %{with tests}
+BuildRequires:	perl-Encode
 BuildRequires:	perl-Pod-POM >= 0.1
 BuildRequires:	perl-Text-Autoformat >= 1.03
 %endif
