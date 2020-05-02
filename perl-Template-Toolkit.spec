@@ -27,6 +27,7 @@ BuildRequires:	perl-Test-LeakTrace
 BuildRequires:	perl-Text-Autoformat >= 1.03
 %endif
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 Obsoletes:	perl-Template-Toolkit-examples
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
