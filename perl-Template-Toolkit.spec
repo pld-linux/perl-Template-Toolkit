@@ -7,13 +7,13 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	2.29
-Release:	3
+Version:	3.009
+Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	3da1c892b986bb31a1f1253a4e26d30c
+# Source0-md5:	f1c401067b728337a8a8c0d4ae642af8
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.8
 BuildRequires:	perl-AppConfig >= 1.56
@@ -156,7 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes HACKING README TODO
+%doc Changes HACKING README.md TODO
 %attr(755,root,root) %{_bindir}/tpage
 %attr(755,root,root) %{_bindir}/ttree
 %{perl_vendorarch}/Template.pm
