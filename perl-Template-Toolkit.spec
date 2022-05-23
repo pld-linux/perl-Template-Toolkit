@@ -7,28 +7,26 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	3.009
-Release:	2
+Version:	3.100
+Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	f1c401067b728337a8a8c0d4ae642af8
+# Source0-md5:	a07a3b157e06601e8da8e4da08eba280
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.8
 BuildRequires:	perl-AppConfig >= 1.56
 BuildRequires:	perl-File-Temp >= 0.12
 BuildRequires:	perl-devel >= 1:5.8.0
 %if %{with tests}
-BuildRequires:	perl-CGI
 BuildRequires:	perl-Encode
 BuildRequires:	perl-Pod-POM >= 0.1
 BuildRequires:	perl-Test-LeakTrace
-BuildRequires:	perl-Text-Autoformat >= 1.03
 %endif
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
-Obsoletes:	perl-Template-Toolkit-examples
+Obsoletes:	perl-Template-Toolkit-examples < 2.22
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -169,7 +167,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Template/Plugin/Procedural.pm
 # Simple plugins with no excessive requirements
 %{perl_vendorarch}/Template/Plugin/Assert.pm
-%{perl_vendorarch}/Template/Plugin/CGI.pm
 %{perl_vendorarch}/Template/Plugin/Datafile.pm
 %{perl_vendorarch}/Template/Plugin/Directory.pm
 %{perl_vendorarch}/Template/Plugin/File.pm
@@ -189,16 +186,27 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{perl_vendorarch}/auto/Template/Stash/XS/*.so
 %{_mandir}/man1/tpage.1*
 %{_mandir}/man1/ttree.1*
-%{_mandir}/man3/Template.*
-%{_mandir}/man3/Template::[!P]*
-%{_mandir}/man3/Template::P[!l]*
-%{_mandir}/man3/Template::Plugin[!:]*
-%{_mandir}/man3/Template::Plugin::[!ADIP]*
-%{_mandir}/man3/Template::Plugin::Assert.3pm*
-%{_mandir}/man3/Template::Plugin::D[!au]*
-%{_mandir}/man3/Template::Plugin::Dat[!e]*
-%{_mandir}/man3/Template::Plugin::I[!m]*
-%{_mandir}/man3/Template::Plugin::P[!o]*
+%{_mandir}/man3/Template.3*
+%{_mandir}/man3/Template::[!P]*.3*
+%{_mandir}/man3/Template::P[!l]*.3*
+%{_mandir}/man3/Template::Plugin.3*
+%{_mandir}/man3/Template::Plugin::Assert.3*
+%{_mandir}/man3/Template::Plugin::Datafile.3*
+%{_mandir}/man3/Template::Plugin::Directory.3*
+%{_mandir}/man3/Template::Plugin::File.3*
+%{_mandir}/man3/Template::Plugin::Filter.3*
+%{_mandir}/man3/Template::Plugin::Format.3*
+%{_mandir}/man3/Template::Plugin::HTML.3*
+%{_mandir}/man3/Template::Plugin::Iterator.3*
+%{_mandir}/man3/Template::Plugin::Math.3*
+%{_mandir}/man3/Template::Plugin::Procedural.3*
+%{_mandir}/man3/Template::Plugin::Scalar.3*
+%{_mandir}/man3/Template::Plugin::String.3*
+%{_mandir}/man3/Template::Plugin::Table.3*
+%{_mandir}/man3/Template::Plugin::URL.3*
+%{_mandir}/man3/Template::Plugin::View.3*
+%{_mandir}/man3/Template::Plugin::Wrap.3*
+%{_mandir}/man3/Template::Plugins.3*
 
 # For arch-independent plugins
 %dir %{perl_vendorlib}/Template/Plugin
@@ -208,19 +216,19 @@ rm -rf $RPM_BUILD_ROOT
 %files Plugin-Date
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/Date.pm
-%{_mandir}/man3/Template::Plugin::Date*
+%{_mandir}/man3/Template::Plugin::Date.3*
 
 %files Plugin-Dumper
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/Dumper.pm
-%{_mandir}/man3/Template::Plugin::Dumper*
+%{_mandir}/man3/Template::Plugin::Dumper.3*
 
 %files Plugin-Image
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/Image.pm
-%{_mandir}/man3/Template::Plugin::Image*
+%{_mandir}/man3/Template::Plugin::Image.3*
 
 %files Plugin-Pod
 %defattr(644,root,root,755)
 %{perl_vendorarch}/Template/Plugin/Pod.pm
-%{_mandir}/man3/Template::Plugin::Pod*
+%{_mandir}/man3/Template::Plugin::Pod.3*
