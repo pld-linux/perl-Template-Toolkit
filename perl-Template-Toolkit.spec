@@ -1,19 +1,19 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	Template
 %define		pnam	Toolkit
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	3.100
-Release:	2
+Version:	3.101
+Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	a07a3b157e06601e8da8e4da08eba280
+# Source0-md5:	1dfa07e1a49c971a618159a2b96603c0
 URL:		http://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.8
 BuildRequires:	perl-AppConfig >= 1.56
@@ -154,7 +154,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes HACKING README.md TODO
+%doc Changes README.md TODO
 %attr(755,root,root) %{_bindir}/tpage
 %attr(755,root,root) %{_bindir}/ttree
 %{perl_vendorarch}/Template.pm
