@@ -7,14 +7,14 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	3.101
-Release:	3
+Version:	3.102
+Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	1dfa07e1a49c971a618159a2b96603c0
-URL:		http://www.template-toolkit.org/
+Source0:	https://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	23699f6b2830646d5ff6bb3ccad94a05
+URL:		https://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.8
 BuildRequires:	perl-AppConfig >= 1.56
 BuildRequires:	perl-File-Temp >= 0.12
@@ -159,6 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ttree
 %{perl_vendorarch}/Template.pm
 %{perl_vendorarch}/Template/*.pm
+%{perl_vendorarch}/Template/App
 %{perl_vendorarch}/Template/Stash
 %{perl_vendorarch}/Template/Namespace
 %dir %{perl_vendorarch}/Template/Plugin
