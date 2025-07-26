@@ -8,7 +8,7 @@ Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
 Version:	3.102
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
