@@ -7,13 +7,13 @@
 Summary:	Fast, powerful and easily extensible template processing system
 Summary(pl.UTF-8):	Rozbudowany i wydajny system szablonów
 Name:		perl-Template-Toolkit
-Version:	3.102
-Release:	2
+Version:	3.106
+Release:	1
 # same as perl
 License:	GPL v1+ or or Artistic
 Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-module/Template/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	23699f6b2830646d5ff6bb3ccad94a05
+# Source0-md5:	88a6653ad84a6351e35eead1ee775fe7
 URL:		https://www.template-toolkit.org/
 BuildRequires:	perl(File::Spec) >= 0.8
 BuildRequires:	perl-AppConfig >= 1.56
@@ -148,6 +148,8 @@ install -d $RPM_BUILD_ROOT%{perl_vendorlib}/Template/{Plugin,Provider,Stash}
 
 # check-files cleanup
 find $RPM_BUILD_ROOT%{perl_vendorarch}/Template -name '*.pod' | xargs rm -f
+# single-level auto/ dir; global cleanup only catches nested auto/X/Y/.packlist
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/Template/.packlist
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -174,6 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Template/Plugin/Format.pm
 %{perl_vendorarch}/Template/Plugin/HTML.pm
 %{perl_vendorarch}/Template/Plugin/Iterator.pm
+%{perl_vendorarch}/Template/Plugin/List.pm
 %{perl_vendorarch}/Template/Plugin/Math.pm
 %{perl_vendorarch}/Template/Plugin/Scalar.pm
 %{perl_vendorarch}/Template/Plugin/String.pm
